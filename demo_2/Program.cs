@@ -4,8 +4,8 @@ using demo_2;
 //switch_case s = new switch_case();
 //s.switch2();
 //-------
-//if_else i=new if_else();
-//i.if_else1();
+if_else i = new if_else();
+i.identifyChar();
 
 //------------
 //while_loop w=new while_loop();
@@ -15,8 +15,8 @@ using demo_2;
 //fl.no_pyaramid();
 //-------------
 
-sequence_logic sq=new sequence_logic();
-sq.cel_fer();
+//sequence_logic sq=new sequence_logic();
+//sq.leapYear();
 //--------------------
 //dynamic value = 10.2;
 //Console.WriteLine(value);
