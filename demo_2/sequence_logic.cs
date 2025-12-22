@@ -38,7 +38,11 @@ namespace demo_2
             Console.WriteLine("Enter Celsius :");
             double cel = Convert.ToDouble(Console.ReadLine());
 
+            double fer = (cel * 1.8) + 32;
 
+
+
+            Console.WriteLine("Fahrenheit is :", fer);
         }
     }
 }

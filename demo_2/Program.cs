@@ -16,7 +16,7 @@ using demo_2;
 //-------------
 
 sequence_logic sq=new sequence_logic();
-sq.compound_interest();
+sq.cel_fer();
 //--------------------
 //dynamic value = 10.2;
 //Console.WriteLine(value);
