@@ -2,17 +2,17 @@
 using demo_2;
 //------------
 //switch_case s = new switch_case();
-//s.switch2();
+//s.identifyChar();
 //-------
-if_else i = new if_else();
-i.identifyChar();
+//if_else i = new if_else();
+//i.markSheet();
 
 //------------
 //while_loop w=new while_loop();
 //w.conti();
 //--------------
-//for_loop fl = new for_loop();
-//fl.no_pyaramid();
+for_loop fl = new for_loop();
+fl.characterSeries();
 //-------------
 
 //sequence_logic sq=new sequence_logic();
