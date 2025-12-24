@@ -8,11 +8,11 @@ using demo_2;
 //i.markSheet();
 
 //------------
-//while_loop w=new while_loop();
-//w.conti();
+//while_loop w = new while_loop();
+//w.armstrongNo();
 //--------------
 for_loop fl = new for_loop();
-fl.characterSeries();
+fl.pyramid9();
 //-------------
 
 //sequence_logic sq=new sequence_logic();

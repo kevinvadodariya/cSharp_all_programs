@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace demo_2
@@ -204,6 +205,10 @@ namespace demo_2
             // 3
             for (int i = 1; i <= no; i++)//1true--2true--3true
             {
+
+
+
+
                 //Console.Write(i);
                 for (int j = no; j >= i; j--) //3 true 2true 1true--3true 2true 1false--3true 2false
                 {
@@ -356,9 +361,9 @@ namespace demo_2
         }
         public void characterSeries()
         {
-            Console.WriteLine("Enter Charecater :");
-            char usrChar = Console.ReadKey().KeyChar;
-            Console.WriteLine();
+            //Console.WriteLine("Enter Charecater :");
+            //char usrChar = Console.ReadKey().KeyChar;
+            //Console.WriteLine();
 
             //A
             //A B
@@ -381,32 +386,184 @@ namespace demo_2
             //AB
             //A
 
-            for (char ch = char.ToUpper(usrChar); ch >= 'A'; ch--)
-            {
-                for (char c = 'A'; c <= ch; c++)
-                {
-                    Console.Write(c);
-                }
-                Console.WriteLine();
-            }
+            //for (char ch = char.ToUpper(usrChar); ch >= 'A'; ch--)
+            //{
+            //    for (char c = 'A'; c <= ch; c++)
+            //    {
+
+
+            //        Console.Write(c);
+            //    }
+            //    Console.WriteLine();
+            //}
+
 
             //A
             //BC
             //DEF
             //GHIJ
-            //char newChar='A';
-            //for(char ch='A';ch<= char.ToUpper(usrChar); ch++)
+            //char newChar = 'A';
+            //for (char ch = 'A'; ch <= char.ToUpper(usrChar); ch++)
             //{
 
-            //    for(char c = 'A'; c <= ch; c++)
+            //    for (char c = 'A'; c <= ch; c++)
             //    {
             //        Console.Write(newChar);
 
-            //        newChar ++;
+            //        newChar++;
             //    }
             //    Console.WriteLine();
             //}
-            
+
+            //EDCBA
+            //DCBA
+            //CBA
+            //BA
+            //A
+
+            char c1 = 'e';
+            for (char c2 = c1; c2 >= 'a'; c2--)//edcba
+            {
+                for (char c3 = c2; c3 >= 'a'; c3--)//
+                {
+                    Console.Write(c3);
+                }
+                Console.WriteLine();
+            }
+        }
+        public void pyramid7()
+        {
+            //ABCDE
+            // ABCD
+            //  ABC
+            //   AB
+            //    A
+
+            //char c1 = 'e';
+            //for (char c2 = c1; c2 >= 'a'; c2--)//e d c b a
+            //{
+            //    for (char j = c1; j >= c2; j--)//
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (char k = 'a'; k <=c2;k++)
+            //    {
+            //        Console.Write(k);
+            //    }
+            //        Console.WriteLine();
+            //}
+            //-------------
+
+            //      A
+            //     AB
+            //    ABC
+            //   ABCD
+            //  ABCDE
+
+            //      A
+            //     AB A
+            //    ABC BA
+            //   ABCD CBA
+            //  ABCDE DCBA
+            char c1 = 'e';
+            for (char c2 = 'a'; c2 <= c1; c2++)//abcde
+            {
+                for (char c3 = c1; c3 >= c2; c3--)//e 
+                {
+                    Console.Write(" ");
+                }
+                for (char c3 = 'a'; c3 <= c2; c3++)
+                {
+                    Console.Write(c3);
+                }
+                //for (char c4 = (char)(c2-1); c4 >= 'a'; c4--)//a b
+                //{
+                //    Console.Write(c4);
+                //}
+                Console.WriteLine();
+            }
+
+
+        }
+        public void pyramid8()
+        {
+            //ABCDE
+            //ABCD
+            //ABC
+            //AB
+            //A
+            //AB
+            //ABC
+            //ABCD
+            //ABCDE
+
+            char c1 = 'e';
+            for (char c2 = c1; c2 >= 'a'; c2--)
+            {
+                //Console.WriteLine(c2);
+                for (char c3 = 'a'; c3 <= c2; c3++)
+                {
+                    Console.Write(c3);
+                }
+                Console.WriteLine();
+            }
+            for (char ch1 = 'b'; ch1 <= c1; ch1++)//bcde
+            {
+                for (char ch2 = 'a'; ch2 <= ch1; ch2++)
+                {
+                    Console.Write(ch2);
+                }
+                Console.WriteLine();
+            }
+
+        }
+        public void pyramid9()
+        {
+            //A B C D E F G F E D C B A
+            //A B C D E F   F E D C B A
+            //A B C D E       E D C B A
+            //A B C D           D C B A
+            //A B C               C B A
+            //A B                   B A
+            //A                       A
+
+            char c1 = 'g';
+            int space = 1;
+            for (char c2 = c1; c2 >= 'a'; c2--)
+            {
+                if (c2 == 'g')
+                {
+                    for (char c3 = 'a'; c3 <= c2; c3++)
+                    {
+                        Console.Write(c3);
+                    }
+                    for (char c6 = (char)(c2 - 1); c6 >= 'a'; c6--)
+                    {
+                        Console.Write(c6);
+                    }
+                    Console.WriteLine();
+                }
+                else
+                {
+
+                    for (char c3 = 'a'; c3 <= c2; c3++)
+                    {
+                        Console.Write(c3);
+                    }
+                    for (int i = 1; i <=space; i++)
+                    {
+                        Console.Write(" ");
+                        
+
+                    }
+                    space += 2;
+                    for (char c6 = c2; c6 >= 'a'; c6--)
+                    {
+                        Console.Write(c6);
+                    }
+                    Console.WriteLine();
+                }
+            }
         }
     }
 }
