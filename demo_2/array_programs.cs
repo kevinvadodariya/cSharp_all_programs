@@ -242,27 +242,37 @@ namespace demo_2
             //1-412 5 0
             //0-4125 0
 
-            for (int i = 0; i <= arr.Length - 1; i++)//64
+            for (int i = 0; i < arr.Length - 1; i++)//64
             {
-                int small = 1;
-                for (int j = 0; j < arr.Length - 1; j++)//64
+                int small = i;
+                int j;
+                for (j=i+1; j < arr.Length; j++)//64
                 {
 
-                    if (arr[j] > arr[j + 1])//4 1--1 2
+                    if (arr[j] < arr[small])//4 1--1 2
                     {
-                        small = arr[j + 1];//1
-
-
+                        small = j;//1
                     }
-                    Console.Write(small + " ");//0
-                    int temp = arr[j]; //4
-                    arr[j] = small; //0
-                    small = temp;//12
-                    //break;
+                    //Console.Write(small + " ");//0
+
+                    //foreach (int k in arr)
+                    //{
+                    //    Console.Write(k + ");
+                    //}
                 }
-                Console.WriteLine();
+                int temp = arr[i]; //1
+                arr[i] = arr[small]; //
+                arr[small] = temp;//12
+
+
+
+                //Console.WriteLine();
 
             }
+            foreach (int k in arr)
+            {
+                Console.Write(k + " ");
+                    }
             Console.WriteLine();
         }
     }
