@@ -270,7 +270,7 @@ namespace demo_2
 
             while (temp > 0)
             {
-                 Digitcount+= 1;
+                Digitcount += 1;
                 temp /= 10;
             }
             Console.WriteLine(Digitcount);
@@ -281,11 +281,38 @@ namespace demo_2
                 sum += Math.Pow(last, Digitcount);//last digit * no(3*3*3//5*5*5//1*1*1*)
 
             }
-            Console.WriteLine((sum == orignalNo) ? orignalNo + "Is Armstrong":orignalNo+" IS not Armstrong");
+            Console.WriteLine((sum == orignalNo) ? orignalNo + "Is Armstrong" : orignalNo + " IS not Armstrong");
 
         }
+        public void Break_continue()
+        {
+            int no = 10;
+            //for (int i=1; i <= no+1; i++)
+            //{
+            //    Console.WriteLine(i);
+            //    if (i == 4)
+            //    {
+            //        break;
+            //    }
 
-              public void conti()
+            //}
+            for (int i = 1; i <= no; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    continue;
+                    Console.WriteLine(no + "is Even");
+                }
+                else
+                {
+                    Console.WriteLine(i + " :Odd");
+                    //break;
+                }
+
+            }
+        }
+
+        public void conti()
         {
             int i = 0, no = 5;
 
@@ -298,6 +325,7 @@ namespace demo_2
 
             }
         }
-
+        
     }
+
 }

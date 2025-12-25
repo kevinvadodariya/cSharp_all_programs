@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using demo_2;
+
 //------------
 //switch_case s = new switch_case();
 //s.identifyChar();
@@ -9,12 +10,15 @@ using demo_2;
 
 //------------
 //while_loop w = new while_loop();
-//w.armstrongNo();
+//w.Break_continue();
 //--------------
-for_loop fl = new for_loop();
-fl.pyramid9();
+//for_loop fl = new for_loop();
+//fl.pyramid9();
 //-------------
+array_programs array = new array_programs();
+array.selectionSort();
 
+//-------------
 //sequence_logic sq=new sequence_logic();
 //sq.leapYear();
 //--------------------
