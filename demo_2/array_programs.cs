@@ -235,45 +235,55 @@ namespace demo_2
         }
         public void selectionSort()
         {
-            //int[] arr = { 64, 25, 12, 22, 11 };
-            int[] arr = { 4, 2, 1, 5, 0 };
-            //1-41250
-            //1-41 2 50
-            //1-412 5 0
-            //0-4125 0
+            int[] arr = { 64, 25, 22, 12, 22, 11 };
+            //int[] arr = { 4, 2, 1, 5, 0, 3 }; //legth 6
+            //0  1  2  3  4  5
 
-            for (int i = 0; i < arr.Length - 1; i++)//64
+            for (int i = 0; i < arr.Length - 1; i++)
             {
-                int small = i;
-                int j;
-                for (j=i+1; j < arr.Length; j++)//64
+
+                int Small_index = i;//i is first index 
+                for (int j = i + 1; j < arr.Length; j++)//j+1 because i=index1 and compare with next index
                 {
-
-                    if (arr[j] < arr[small])//4 1--1 2
+                    if (arr[j] < arr[Small_index])
                     {
-                        small = j;//1
+                        Small_index = j;
+
                     }
-                    //Console.Write(small + " ");//0
 
-                    //foreach (int k in arr)
-                    //{
-                    //    Console.Write(k + ");
-                    //}
                 }
-                int temp = arr[i]; //1
-                arr[i] = arr[small]; //
-                arr[small] = temp;//12
-
-
-
-                //Console.WriteLine();
-
+                int temp = arr[i];
+                arr[i] = arr[Small_index];
+                arr[Small_index] = temp;
             }
             foreach (int k in arr)
             {
                 Console.Write(k + " ");
+            }
+        }
+        public void InsertionSort()
+        {
+            //int[] arr = { 23, 1, 10, 5, 2 };
+            //int[] arr = { 23, 1, 10,5 };
+            int[] arr = { 34, 12, 78, 23, 45, 9, 56 };
+            for (int i = 0; i <arr.Length - 1; i++)
+            {
+                int Key = i + 1;
+                for (int j = 0; j < Key; j++)
+                {
+                    if (arr[Key] < arr[j])
+                    {
+                        int temp = arr[Key];
+                        arr[Key] = arr[j];
+                        arr[j] = temp;
                     }
-            Console.WriteLine();
+                }
+                foreach (int k in arr)
+                {
+                    Console.Write(k + " ");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

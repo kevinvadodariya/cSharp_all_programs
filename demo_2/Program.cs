@@ -15,13 +15,16 @@ using demo_2;
 //for_loop fl = new for_loop();
 //fl.pyramid9();
 //-------------
-array_programs array = new array_programs();
-array.selectionSort();
+//array_programs array = new array_programs();
+//array.InsertionSort();
 
 //-------------
 //sequence_logic sq=new sequence_logic();
 //sq.leapYear();
 //--------------------
+//OOPs oop = new OOPs();
+//Console.WriteLine(oop.color+" "+oop.name+" "+oop.model);
+//-----------------
 //dynamic value = 10.2;
 //Console.WriteLine(value);
 
@@ -81,3 +84,12 @@ array.selectionSort();
 //Console.WriteLine(result);
 
 
+class Oops()
+{
+    private string name;
+    public string Name;
+    public void encapsulation()
+    {
+
+    }
+}
