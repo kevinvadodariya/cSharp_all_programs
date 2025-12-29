@@ -22,8 +22,8 @@ using demo_2;
 //sequence_logic sq=new sequence_logic();
 //sq.leapYear();
 //--------------------
-//OOPs oop = new OOPs();
-//Console.WriteLine(oop.color+" "+oop.name+" "+oop.model);
+OOPs oop = new OOPs();
+Console.WriteLine(oop.color+" "+oop.name+" "+oop.model);
 //-----------------
 //dynamic value = 10.2;
 //Console.WriteLine(value);
@@ -82,14 +82,3 @@ using demo_2;
 //int age =int.Parse( Console.ReadLine());
 //string result = (age >= 18) ? "eligible for vote" : "not eligible";
 //Console.WriteLine(result);
-
-
-class Oops()
-{
-    private string name;
-    public string Name;
-    public void encapsulation()
-    {
-
-    }
-}
