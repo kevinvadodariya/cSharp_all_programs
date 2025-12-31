@@ -4,18 +4,26 @@ using System.Text;
 
 namespace AdvanceTopics
 {
-    internal class Generics<T>
+    internal class GenericsStore<T, U>
     {
-        public T Value;
-        public void show(T value)
+        //public T Value;
+
+        List<T> Products = new List<T>();
+        Dictionary<U, T> Productdict = new Dictionary<U, T>();
+        public void AddProduct(T product, U id)
         {
-            Value = value;
-            Console.WriteLine(Value);
+            Products.Add(product);
+            Productdict.Add(id, product);
         }
-        public Generics(T val)
+
+        public List<T> GetAllProduct()
         {
-            Value = val;
-            Console.WriteLine(Value);
+            //    Console.WriteLine(Products);   
+            return Products;
+        }
+        internal T GetProductbyId(U id)
+        {
+            return Productdict[id];
         }
     }
 }
