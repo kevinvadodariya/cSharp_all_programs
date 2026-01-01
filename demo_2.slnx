@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="AdvanceTopics/AdvanceTopics.csproj" Id="fd8d6004-fdac-45e7-bfd0-f0f74455acbf" />
   <Project Path="demo_2/demo_2.csproj" />
+  <Project Path="LinqPrograms/LinqPrograms.csproj" Id="b91beb2f-a66a-4cff-80f0-e5654bd338cc" />
   <Project Path="OOPs Concepts/OOPs Concepts.csproj" Id="a366a29a-23ac-45ea-84e4-08f7f326b83a" />
   <Project Path="WorkWithFile/WorkWithFile.csproj" Id="c2e9d19d-5c89-45ee-b251-f1c968dc129a" />
 </Solution>
