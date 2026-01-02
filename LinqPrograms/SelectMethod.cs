@@ -64,7 +64,7 @@ namespace LinqPrograms
             {
                 Id = 6,
                 Name = "Emma",
-                Salary = 27000,
+                Salary = 2000,
                 Hobby = new List<string> { "Painting" },
                 Skills = new List<string> { "Photography", "Creativity", "Problem Solving" }
             });
@@ -108,7 +108,7 @@ namespace LinqPrograms
             listnum.Add(new SelectMethod
             {
                 Id = 11,
-                Name = "Jack",
+                Name = "Sara",
                 Salary = 30000,
                 Hobby = new List<string> { "Gaming" },
                 Skills = new List<string> { "C#", "Problem Solving", "Teamwork" }
@@ -242,17 +242,152 @@ namespace LinqPrograms
         }
         public void GroupBy()
         {
-            var data = listnum.GroupBy(a => a.Skills[0]);
+            //One key in Groupby
+            //var data = listnum.GroupBy(a => a.Skills[0]);
+            //foreach (var item in data)
+            //{
+            //    Console.WriteLine("Skills: "+item.Key);
+            //    foreach (var item1 in item)
+            //    {
+            //        Console.WriteLine("Id :-"+item1.Id+" "+item1.Name);
+            //    }
+            //    Console.WriteLine();
+            //    Console.WriteLine("--------");
+            //}
+            //More than One Key 
+            var data = listnum.GroupBy(k => k.Salary, a => a.Name);
             foreach (var item in data)
             {
-                Console.WriteLine("Skills: "+item.Key);
+                Console.WriteLine("Name: " + item.Key);
                 foreach (var item1 in item)
                 {
-                    Console.WriteLine("Id :-"+item1.Id+" "+item1.Name);
+                    Console.WriteLine("Skills :-" + item1);
                 }
                 Console.WriteLine();
                 Console.WriteLine("--------");
             }
+        }
+        public void Aggregate()
+        {
+            int count = listnum.Count(n => n.Name == "Mia" && n.Id > 10);
+            int sum = listnum.Sum(s => s.Salary);
+
+            int min = listnum.Min(s => s.Salary);//Only give min salary
+            var minby = listnum.MinBy(s => s.Salary);//return all propery of min salary record
+
+            int max = listnum.Max(s => s.Salary);//Only give Max salary
+            var maxby = listnum.MaxBy(s => s.Salary);//return all propery of Max salary record
+            Console.WriteLine(minby.Name + " " + maxby.Salary);
+
+            double avg = listnum.Average(a => a.Salary);
+            //Console.WriteLine("Average Salary : "+ (int)avg);
+
+        }
+        public void SetOperation()
+        {
+            var no1 = new[] { 1, 2, 3, 4, 5 };
+            var no2 = new[] { 3, 4, 5, 6, 7 };
+            var people1 = new[] { new { Name = "John" }, new { Name = "Sara" } };
+            var people2 = new[] { new { Name = "Sara" }, new { Name = "Mike" }, new { Name = "Kevin" } };
+
+            bool s = no1.SequenceEqual(no2);
+            Console.WriteLine(s);
+
+            var noI = no1.Union(no2);   //union
+            var noU = no1.Intersect(no2);   //intersect
+            //Console.WriteLine(string.Join(",", noU));
+
+            var uniBy = people1.UnionBy(people2, p => p.Name);
+            var InteBy = listnum.IntersectBy(people2.Select(p => p.Name), k => k.Name);
+
+            //foreach (var item in InteBy)
+            //{
+            //    Console.WriteLine(string.Join(",",item.Name));
+            //}
+
+
+            var exc = no1.Except(no2);
+            foreach (var item in exc)
+            {
+                Console.WriteLine(item);
+            }
+
+            var excBy = people1.ExceptBy(people2.Select(p=>p.Name),p=>p.Name);
+            foreach (var item in excBy)
+            {
+                Console.WriteLine(string.Join(",", item.Name));
+            }
+        }
+        public void RangeRepeatRevers()
+        {
+            var range = Enumerable.Range(1, 10);
+            foreach (var item in range)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+            var repeat = Enumerable.Repeat('k', 10);
+            foreach (var item in repeat)
+            {
+                Console.WriteLine(item);
+            }
+
+            var revers = range.Reverse();
+            foreach (var item in revers)
+            {
+                Console.Write(item+" ");
+            }
+        }
+    }
+}
+
+class Order
+{
+    public int OrderNO { get; set; }
+    public string ProductName { get; set; }
+    public int Quntity { get; set; }
+    public Double Price { get; set; }
+    public double Total;
+
+    List<Order> orders = new List<Order>();
+
+    public void add()
+    {
+        orders.Add(new Order { OrderNO = 1, ProductName = "Laptop", Quntity = 2, Price = 50000.0 });
+        orders.Add(new Order { OrderNO = 2, ProductName = "Mouse", Quntity = 5, Price = 500.0 });
+        orders.Add(new Order { OrderNO = 3, ProductName = "Keyboard", Quntity = 3, Price = 1000.0 });
+        orders.Add(new Order { OrderNO = 4, ProductName = "Monitor", Quntity = 2, Price = 10000.0 });
+        orders.Add(new Order { OrderNO = 5, ProductName = "Printer", Quntity = 1, Price = 8000.0 });
+        orders.Add(new Order { OrderNO = 6, ProductName = "Laptop", Quntity = 3, Price = 50000.0 });  // duplicate
+        orders.Add(new Order { OrderNO = 7, ProductName = "Chair", Quntity = 4, Price = 2000.0 });
+        orders.Add(new Order { OrderNO = 8, ProductName = "Desk", Quntity = 2, Price = 3000.0 });
+        orders.Add(new Order { OrderNO = 9, ProductName = "Headphones", Quntity = 3, Price = 1500.0 });
+        orders.Add(new Order { OrderNO = 10, ProductName = "USB Cable", Quntity = 10, Price = 200.0 });
+        orders.Add(new Order { OrderNO = 11, ProductName = "Mouse", Quntity = 4, Price = 500.0 });     // duplicate
+        orders.Add(new Order { OrderNO = 12, ProductName = "Webcam", Quntity = 2, Price = 2500.0 });
+        orders.Add(new Order { OrderNO = 13, ProductName = "Microphone", Quntity = 1, Price = 3000.0 });
+        orders.Add(new Order { OrderNO = 14, ProductName = "Laptop Bag", Quntity = 2, Price = 1500.0 });
+        orders.Add(new Order { OrderNO = 15, ProductName = "Mouse Pad", Quntity = 5, Price = 300.0 });
+    }
+
+    public void aggregate()
+    {
+        Double sum = orders.Aggregate(0.0, (Total, Price) => Total + Price.Price * Price.Quntity);//first total value is 0.0 than update 
+        Console.WriteLine("Total :" + sum);
+        Console.WriteLine();
+
+        var group = orders.GroupBy(d => d.ProductName);
+        foreach (var item in group)
+        {
+            Console.WriteLine("Product Name : " + item.Key);
+            double total = item.Aggregate(0.0, (total, pro) => total + (pro.Quntity * pro.Price));
+            //double total = item.Sum(a => a.Quntity * a.Price);
+            foreach (var item1 in item)
+            {
+                Console.WriteLine("Quntity :" + item1.Quntity + " Price :" + item1.Price);
+            }
+            Console.WriteLine(total);
+            Console.WriteLine();
         }
     }
 }

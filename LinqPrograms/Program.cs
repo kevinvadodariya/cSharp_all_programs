@@ -1,78 +1,89 @@
 ﻿
 
 using LinqPrograms;
-
-
-
-//Employee employee = new Employee();
-//employee.AddDetails( 1,  "Ali",  "Khan",  "IT",  22,  30000);
-//employee.AddDetails(2, "Sara", "Ahmed", "HR", 25, 28000);
-//employee.AddDetails(3, "John", "Smith", "Finance", 30, 40000);
-//employee.AddDetails(5, "Neha", "Verma", "It", 28, 25000);
-//employee.AddDetails(4, "Aman", "Verma", "IT", 28, 35000);
-//employee.AddDetails(5, "Neha", "Sharma", "Admin", 26, 25000);
-//employee.getData();
-
 SelectMethod sm = new SelectMethod();
 sm.add();
 //sm.select();
 //sm.Orderby();
 //sm.Where();
 //sm.SelectSpecificElement();
-sm.GroupBy();
+//sm.GroupBy();
+//sm.Aggregate();
+//sm.SetOperation();
+sm.RangeRepeatRevers();
 
 
+//Order or = new Order();
+//or.add();
+//or.aggregate();
 
-class Employee
-{
-    public int Id { get; set; }
-    public string EmpFirstName { get; set; }
-    public string EmpLastName { get; set; }
-    public string Department { get; set; }
-    public int Age { get; set; }
-    public int Salary { get; set; }
+//==============================Join===========================
 
-    List<Employee> emp = new List<Employee>();
-    
 
-    public void AddDetails(int id, string firstname, string lastname, string depart, int age, int salary)
-    {
-        emp.Add(new Employee
-        {
-            Id = id,
-            EmpFirstName = firstname,
-            EmpLastName = lastname,
-            Department = depart,
-            Age = age,
-            Salary = salary,
-        });
-    }
-    public void getData()
-    {
-        emp.GetEnumerator();
-        
-        //----------------Using LINQ--------------------------
+//Student st = new Student();
+//st.Add();
+//Course cs = new Course();
+//cs.Add();
 
-        IEnumerable<string> names = emp.Select(e => e.EmpFirstName).Distinct();//remove duplicate value use .Distinct()
-        //foreach (var item in names)
-        //{
-        //    Console.WriteLine(item);
-        //}
+//---------inner join----
+//var data = st.students.Join(cs.courses,
+//                            st => st.Id,
+//                            cs => cs.StudentId,
+//                            (st, cs) => new { st.Name, cs.CourseName });
+//foreach (var item in data)
+//{
+//    Console.WriteLine($"{item.Name} - {item.CourseName}");
+//}
+//----------Group join--------------
 
-        //var name=emp.Where(e => e.Id == 3).Select(e => e.EmpFirstName);   //Using Where 
-        //foreach (var n in name)
-        //{
-        //    Console.WriteLine(n);
-        //}
-       
+//var data = st.students.GroupJoin(cs.courses,
+//                            st => st.Id,
+//                            cs => cs.StudentId,
 
-        //====================Simple Syntax=================================
-        //emp.ForEach(e => Console.WriteLine(e.EmpFirstName));
+//                            (st, CourseGroup) => new { 
+//                               StudentName= st.Name,
+//                                Course=CourseGroup
+//                            });
+//foreach (var item in data)
+//{
+//    Console.WriteLine(item.StudentName);
+//    foreach (var item1 in item.Course)
+//    {
+//        Console.WriteLine( string.Join(',', item1.CourseName));
+//    }
+//    Console.WriteLine();
 
-        //------------Using For Each loop---------------
-        //foreach(var j in emp)
-        //{
-        //    Console.WriteLine(j.Id+j.EmpFirstName+j.EmpFirstName);
-        //}
-    }
-}
+//}
+//------------------Left Join---------------------
+
+//var data = st.students.LeftJoin(cs.courses, s => s.Id, c => c.StudentId, (s, c) => new
+//{
+//    StudentName = s.Name,
+//    Course = c?.CourseName ?? "Empty"
+//});
+
+//foreach (var item in data)
+//{
+//    Console.WriteLine("Student Name :" + item.StudentName + "   `Course Name: " + item.Course);
+
+//}
+//------------------Right Join------------------------------
+
+//var data = st.students.RightJoin(cs.courses, s => s.Id, c => c.StudentId, (s, c) => new { 
+//    Name=s?.Name??"No Student",
+//    Course=c.CourseName
+//});
+//foreach (var item in data)
+//{
+//    Console.WriteLine(item.Name+" "+item.Course);
+//}
+
+//====================Simple Syntax=================================
+//emp.ForEach(e => Console.WriteLine(e.EmpFirstName));
+
+//------------Using For Each loop---------------
+//foreach(var j in emp)
+//{
+//    Console.WriteLine(j.Id+j.EmpFirstName+j.EmpFirstName);
+//}
+
