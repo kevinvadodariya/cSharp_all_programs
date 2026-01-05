@@ -13,13 +13,13 @@ collection cn = new collection();
 //gs.AddProduct("Book", 1);
 //gs.GetAllProduct();
 //==========================Delegates=====================
-//Delegates delObj = new Delegates();
+Delegates delObj = new Delegates();
 //pass delegate inside of class
 //Delegates.mydel d = delObj.Sum;
 
 // //outside of class
-//mydel d = delObj.Sum;
-//d(5, 23);
+mydel d = delObj.Sum;
+d(5, 23);
 //------------Static Method----------------
 //strdel std = Delegates.Say;
 

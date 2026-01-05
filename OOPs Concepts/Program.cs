@@ -67,7 +67,7 @@ class MAIN
 
         //------------enum-------------------
 
-        Day d = Day.Monday;
+        Day d = Day.Wednesday;
         Console.WriteLine(d);
 
 
@@ -170,6 +170,8 @@ abstract class animal
 
 
 class dog : animal
+
+
 {
     public override void Sound()
     {
