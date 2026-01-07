@@ -1,0 +1,6 @@
+@CodeFirstApiCRUD_HostAddress = http://localhost:5261
+
+GET {{CodeFirstApiCRUD_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

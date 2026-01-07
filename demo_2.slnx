@@ -1,6 +1,8 @@
 <Solution>
   <Project Path="AdvanceTopics/AdvanceTopics.csproj" Id="fd8d6004-fdac-45e7-bfd0-f0f74455acbf" />
   <Project Path="AsyncAwait/AsyncAwait.csproj" Id="06b21c73-2566-462d-bb94-a7e9e43115b7" />
+  <Project Path="CodeFirstApiCRUD/CodeFirstApiCRUD.csproj" Id="19aafff7-5ccb-4b59-b0cd-956095cb5e44" />
+  <Project Path="DbFirstApiCRUD/DbFirstApiCRUD.csproj" Id="20e0053b-ce34-4fb2-af64-a7447f7c4719" />
   <Project Path="demo_2/demo_2.csproj" />
   <Project Path="FirstApi/FirstApi.csproj" Id="7ed61376-a7a1-4148-9985-b4da32a66050" />
   <Project Path="LinqPrograms/LinqPrograms.csproj" Id="b91beb2f-a66a-4cff-80f0-e5654bd338cc" />

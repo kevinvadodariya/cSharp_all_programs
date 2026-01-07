@@ -11,7 +11,7 @@ namespace FirstApi.Controllers
         public static List<Student> students = new List<Student> {
 
         new Student{id=1,StudentName="Kevin",FatherName="Viththalbhai",Rollno=12},
-        new Student{ id=2,StudentName="Meet",FatherName="Sanjaybhai",Rollno=8} 
+        new Student{ id=2,StudentName="Meet",FatherName="Sanjaybhai",Rollno=8}
         };
 
         [HttpGet]//get all recoards
@@ -21,35 +21,45 @@ namespace FirstApi.Controllers
         }
 
 
-        [HttpGet("GetStudentbyid/{id}")]//get by id
-        public async Task<IActionResult> GetStudentbyid([FromRoute] int id)
+        [HttpGet("GetStudentbyid/")]//get by id
+        public async Task<IActionResult> GetStudentbyid([FromQuery] int id)
         {
             Student? std = students.Find(i => i.id == id);
+            if(std == null){
+                return NotFound();
+            }
             return Ok(std);
         }
 
 
-        //[HttpGet("GetbyRollno/{rollno}")]//get by roll no
-        //public async Task<ActionResult<Student>> GetbyRollno([FromQuery] int rollno)
-        //{
-        //    Student? st = students.Find(a => a.Rollno == rollno);
-        //    return Ok(st);
-        //}
+        [HttpGet("GetbyRollno/")]//get by roll no
+        public async Task<ActionResult<Student>> GetbyRollno([FromQuery] int rollno)
+        {
+            Student? st = students.Find(a => a.Rollno == rollno);
+            if(st == null)
+            {
+                return NotFound();
+            }
+            return Ok(st);
+        }
 
 
         //[HttpPost]
-        //public async Task<Student> AddData([FromQuery] Student value)
+        //public async Task<Student> AddData([FromQuery]Student value)
         //{
-        //    return students.Add(value);
+        //    return students.Add(i => i.id == value.id,);
         //}
 
 
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Deletebyid/")]
         public async Task<ActionResult<Student>> Deletebyid([FromQuery] int id)
         {
             Student? s = students.Find(i => i.id == id);
-
+            if (s == null)
+            {
+                return NotFound();
+            }
             return Ok(students.Remove(s));
         }
     }
